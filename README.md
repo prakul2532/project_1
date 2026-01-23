@@ -1,1 +1,1 @@
-# project_1
+# AI_ML Training Program
