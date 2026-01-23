@@ -18,13 +18,13 @@ print(Programming_Languages)
 #5.) append a new Language at the end of the list.
 new_element2 = input("enter the new programming language : ")
 Programming_Languages.append(new_element2)
-print(Programming_Languages)
+print(Programming_Languages)\
 #6.) insert a new Language at the beginning of the list.
 new_element3 = input("enter the new programming language : ")
 Programming_Languages.insert(0,new_element3)
 print(Programming_Languages)
 #List Advanced operations
-#Q1) Create a nested list (2D list) representing a 3x3 matrix
+#1.) Create a nested list (2D list) representing a 3x3 matrix
 Parent_List = []
 for i in range(0,3):
     Child_List = []
@@ -49,4 +49,91 @@ for i in range(0,len(Parent_List)):
                 continue
     else :
         continue
-
+#2.) update an element in the nested List.
+index_wanted_row = int(input("enter the row of the element : "))
+index_wanted_column = int(input("enter the column of the element : "))
+index_wanted_row = index_wanted_row - 1
+index_wanted_column = index_wanted_column - 1
+new_element4 = int(input("enter the new element : "))
+for i in range(0,len(Parent_List)):
+    if i == index_wanted_row:
+        for j in range(0,len(Parent_List[i])):
+            if j == index_wanted_column:
+                Parent_List[i][j] = new_element4
+                print(Parent_List)
+            else :
+                continue
+    else :
+        continue
+#3.) Delete a row from the nested list.
+row_number = int(input("enter the row number of the element : "))
+row_number = row_number - 1
+Parent_List.pop(row_number)
+print(Parent_List)
+#------------------------------------------------------------------
+#dictionary Basic operations.
+#1.) Create a dictionary representing a student with keys: name, age, grade, and subjects.
+MyDict = {}
+name = input("enter the name : ")
+age = int(input("enter the age : "))
+grade = input("enter the grade : ")
+subject = input("enter the subject : ")
+MyDict["name"] = name
+MyDict["age"] = age
+MyDict["grade"] = grade
+MyDict["subject"] = subject
+#2.) Read and print the student's name and age.
+print(MyDict["name"],"\n",MyDict["age"])
+#3.) Update the student's grade.
+new_grade = input("enter the new grade : ")
+MyDict["grade"] = new_grade
+print(MyDict)
+#4.) Delete the 'subjects' key from the dictionary.
+MyDict.pop("subject")
+print(MyDict)
+#5.) Add a new key 'school' to the dictionary.
+school = input("enter the school : ")
+MyDict["school"] = school
+print(MyDict)
+#dictionary advanced operations.
+#1.) Create a nested dictionary for multiple students.
+Parent_Dictionary = {}
+choice = int(input("enter the number of times : "))
+for i in range(0,choice):
+    Child_Dictionary={}
+    name = input("enter the name : ")
+    age = int(input("enter the age : "))
+    Child_Dictionary["age"] = age
+    grade = input("enter the grade : ")
+    Child_Dictionary["grade"] = grade
+    subject = input("enter the subject : ")
+    Child_Dictionary["subject"] = subject
+    Parent_Dictionary[name] = Child_Dictionary
+print(Parent_Dictionary)
+#2.) Read a specific student's information
+Choice = input("enter the name of the student : ")
+key_List = list(Parent_Dictionary.keys())
+if Choice in Parent_Dictionary:
+    print(Parent_Dictionary[Choice])
+else:
+    print("no such student exist")
+#3.) Update a student's details.
+choice_name = input("enter the name of the student : ")
+if choice_name in Parent_Dictionary:
+    Parent_Dictionary[choice_name]["age"] = int(input("enter the new age :"))
+    Parent_Dictionary[choice_name]["grade"] = input("enter the new grade :")
+    Parent_Dictionary[choice_name]["subject"] = input("enter the new subject :")
+    print(f"updated dictionary :- {Parent_Dictionary}")
+else :
+    print(f"student {choice_name} not found")
+#4.) Delete a student from the dictionary.
+choice_name_delete = input("enter the name of the student : ")
+Parent_Dictionary.pop(choice_name_delete)
+print(Parent_Dictionary)
+#5.) Find all students with grade 'A'.
+for name in Parent_Dictionary:
+    if Parent_Dictionary[name]["grade"] == "A":
+        print(name)
+    else :
+        continue
+#--------------------------------------------------------------------------------
