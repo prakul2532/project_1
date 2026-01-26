@@ -1,4 +1,3 @@
-import csv
 """
 BASIC FILE OPERATIONS
 1.) Reading Files:
@@ -53,6 +52,16 @@ Write a list of dictionaries to a CSV file
 Append data to an existing CSV file
 Read specific columns from a CSV file
 """
+import csv
 
-
-
+with open("sample_students.csv","r") as file:
+    reader = csv.reader(file)
+    next(reader)
+    for row in reader:
+        print(row)
+with open("sample_students.csv","r") as file:
+    data = []
+    reader = csv.DictReader(file)
+    for row in reader:
+        data.append(row)
+    print(data)
